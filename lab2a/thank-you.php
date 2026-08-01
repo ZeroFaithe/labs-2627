@@ -4,6 +4,8 @@ require "helpers/helper-functions.php";
 
 session_start();
 
+$file = fopen(registrations.csv, "a");
+
 $email = $_POST['email'];
 $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 $agree = $_POST['agree'];

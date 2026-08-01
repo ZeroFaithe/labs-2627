@@ -43,7 +43,7 @@ dump_session();
           <input type="password" name="password" placeholder="******" autocomplete="current-password" required>
 
             <label class="p-checkbox--inline">
-            <input type="checkbox" name="agree">
+            <input type="checkbox" name="agree" required>
             </label>
             I agree to the terms and conditions...
             
