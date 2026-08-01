@@ -4,12 +4,12 @@ require "helpers/helper-functions.php";
 
 session_start();
 
-$contact_number = $_POST['contact_number'];
-$program = $_POST['program'];
+$email = $_POST['email'];
+$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 $agree = $_POST['agree'];
 
-$_SESSION['contact_number'] = $contact_number;
-$_SESSION['program'] = $program;
+$_SESSION['email'] = $email;
+$_SESSION['password'] = $password;
 $_SESSION['agree'] = $agree;
 
 $form_data = $_SESSION;
