@@ -1,6 +1,6 @@
 <?php
 
-define('MAX_QUESTION_NUMBER', 50);
+define('MAX_QUESTION_NUMBER', 5);
 
 function retrieve_questions() {
     // 1. Open the questions/triviaquiz.json file

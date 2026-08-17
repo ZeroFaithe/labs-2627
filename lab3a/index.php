@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <title>IPT10 Laboratory Activity #3A</title>
-    <!-- Add the Bulma CSS here -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" />
 </head>
 <body>
 <section class="section">
@@ -11,18 +11,18 @@
         This is the IPT10 PHP Quiz Web Application Laboratory Activity. Please register
     </h2>
     <!-- Supply the correct HTTP method and target form handler resource -->
-    <form method="GET" action="pre-instructions.php">
+    <form method="POST" action="instructions.php">
         <div class="field">
             <label class="label">Name</label>
             <div class="control">
-                <input class="input" type="text" name="complete_name" placeholder="Complete Name">
+                <input class="input" type="text" name="complete_name" id="complete_name" placeholder="Complete Name">
             </div>
         </div>
 
         <div class="field">
             <label class="label">Email</label>
             <div class="control">
-                <input class="input" name="email" type="email" />
+                <input class="input" name="email" id="email" type="email" />
             </div>
         </div>
 
@@ -41,9 +41,28 @@
         </div>
 
         <!-- Next button -->
-        <button type="submit" class="button is-link">Proceed Next</button>
+        <button type="submit" class="button is-link" id = "submit">Proceed Next</button>
     </form>
 </section>
 
+<script>
+    const name = document.getElementById('complete_name');
+    const email = document.getElementById('email');
+    const submitBtn = document.getElementById('submit');
+
+    function toggleSubmitButton(){
+        if (name.value.trim() === '' || email.value.trim() === ''){
+            submitBtn.disabled = true;
+        }
+        else{
+            submitBtn.disabled = false;
+        }
+    }
+
+    name.addEventListener('input', toggleSubmitButton);
+    email.addEventListener('input', toggleSubmitButton);
+
+    toggleSubmitButton();
+</script>
 </body>
 </html>

@@ -5,6 +5,7 @@
 // Supply the missing code
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: index.php');
+    exit;
 }
 
 // Supply the missing code
@@ -23,15 +24,16 @@ $contact_number = $_POST['contact_number'];
 <section class="section">
     <h1 class="title">Instructions</h1>
     <h2 class="subtitle">
+        Hello <?php $sepName = explode(" ", $complete_name); echo $sepName[0]; ?>, please read the instructions first <br/>
         This is the IPT10 PHP Quiz Web Application Laboratory Activity.
     </h2>
 
     <!-- Supply the correct HTTP method and target form handler resource -->
-    <form method="POST" action="">
-        <input type="hidden" value="<?php echo $complete_name; ?>" />
-        <input type="hidden" value="<?php echo $email; ?>" />
-        <input type="hidden" value="<?php echo $birthdate; ?>" />
-        <input type="hidden" value="<?php echo $contact_number; ?>" />
+    <form method="POST" action="quiz.php">
+        <input type="hidden" name = "complete_name" value="<?php echo $complete_name; ?>" />
+        <input type="hidden" name = "email" value="<?php echo $email; ?>" />
+        <input type="hidden" name = "birthdate" value="<?php echo $birthdate; ?>" />
+        <input type="hidden" name = "contact_number" value="<?php echo $contact_number; ?>" />
 
         <!-- Display the instruction -->
         <p>
@@ -48,16 +50,32 @@ $contact_number = $_POST['contact_number'];
         <div class="field">
             <div class="control">
                 <label class="checkbox">
-                <input type="checkbox" name="disagree">
+                <input type="checkbox" name="agree" id = "agree">
                 I agree to the <a href="#">terms and conditions</a>
                 </label>
             </div>
         </div>
 
         <!-- Start Quiz button -->
-        <button type="submit" class="button is-link">Start Quiz</button>
+        <button type="submit" id="submit" class="button is-link">Start Quiz</button>
     </form>
 </section>
+<script>
+    const checkBox = document.getElementById('agree');
+    const submitBtn = document.getElementById('submit');
 
+    function toggleSubmitButton(){
+        if (!checkBox.checked){
+            submitBtn.disabled = true;
+        }
+        else{
+            submitBtn.disabled = false;
+        }
+    }
+
+    checkBox.addEventListener('input', toggleSubmitButton);
+
+    toggleSubmitButton();
+</script>
 </body>
 </html>
