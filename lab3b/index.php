@@ -21,7 +21,7 @@
   <div class="col">
     <h4>File Upload</h4>
 
-    <form>
+    <form action="uploaded.php" method="POST" enctype="multipart/form-data">
         <div class="p-card">
             <h3>Text File</h3>
             <p class="p-card__content">
@@ -29,9 +29,16 @@
             </p>
         </div>
 
-        <div>
-            <button>
-                Upload
+        <div class="p-card">
+            <h3>Audio (MP3) File</h3>
+            <p class="p-card__content">
+            <input type="file" name="audio_file" accept=".mp3,audio/*" />
+            </p>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <button type="submit" class="p-button--positive">
+                Upload Files
             </button>
         </div>
     </form>
