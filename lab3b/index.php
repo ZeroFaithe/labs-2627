@@ -30,12 +30,17 @@
         </div>
 
         <div class="p-card">
+            <h3>Video (MP4) File</h3>
+            <p class="p-card__content">
+            <input type="file" name="video_file" accept=".mp4,video/*" />
+            </p>
+        </div>
+        <div class="p-card">
             <h3>Audio (MP3) File</h3>
             <p class="p-card__content">
             <input type="file" name="audio_file" accept=".mp3,audio/*" />
             </p>
-        </div>
-
+      </div>
         <div style="margin-top: 20px;">
             <button type="submit" class="p-button--positive">
                 Upload Files
