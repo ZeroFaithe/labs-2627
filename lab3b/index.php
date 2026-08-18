@@ -30,6 +30,15 @@
         </div>
 
         <div class="p-card">
+            <h3>PDF File</h3>
+            <p class="p-card__content">
+            <input type="file" name="pdf_file" accept=".pdf,application/pdf" />
+            </p>
+        </div>
+
+        <div>
+            <button type="submit">
+                Upload
             <h3>Image File</h3>
             <p class="p-card__content">
             <input type="file" name="image_file" accept="image/*" />
